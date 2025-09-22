@@ -1,29 +1,14 @@
 #include <stdio.h>
 
-// Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
-// Siga os comentários para implementar cada parte do desafio.
-//Teste larissa
 
 int main() {
-    // Sugestão: Defina variáveis separadas para cada atributo da cidade.
-    // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
-    
-    // Cadastro das Cartas:
-    // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
-    // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
-    
-    // Exibição dos Dados das Cartas:
-    // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // Exiba os valores inseridos para cada atributo da cidade, um por linha.
-
+  
     //----------INÍCIO DO DESAFIO----------
 
     // Variáveis das Cartas 1 e 2
     char estado1, codigo1[4], cidade1[40], estado2, codigo2[4], cidade2[40];
     int populacao1, numeroPontosTuristicos1, populacao2, numeroPontosTuristicos2;
-    float area1, pib1, area2, pib2;
+    float area1, pib1, densidadePopulacional1, pibPerCapta1, area2, pib2, densidadePopulacional2, pibPerCapta2;
     
     // Coletando os dados da Carta 1
 
@@ -74,26 +59,43 @@ int main() {
 
     printf("Números de pontos turísticos:");
     scanf("%d", &numeroPontosTuristicos2);
+    
+    // Calculando a densidade populacional (Número de Habitantes / Área)
+    
+    densidadePopulacional1 = populacao1/area1;
+    
+    densidadePopulacional2 = populacao2/area2;
+    
+    // Calculando a PIB per capta (PIB / Número de Habitantes)
+    
+    pibPerCapta1 = pib1*1000000000/populacao1; // Conversão do PIB para bilhão
+    
+    pibPerCapta2 = pib2*1000000000/populacao2;
 
     // Exibindo os dados coletados da Carta 1
     printf("\nCarta 1\n");
     printf("Estado: %c\n", estado1);
     printf("Código da Carta: %s\n", codigo1);
     printf("Nome da cidade: %s\n", cidade1);
-    printf("População: %d\n", populacao1);
-    printf("Área: %f km²\n", area1);
-    printf("PIB: %f bilhões de reais\n", pib1);
+    printf("População: %d habitantes\n", populacao1);
+    printf("Área: %.2f km²\n", area1);
+    printf("PIB: %.2f bilhões de reais\n", pib1);
     printf("Número de Pontos Turísticos: %d\n", numeroPontosTuristicos1);
+    printf("Densidade populacional: %.2f hab/km²\n", densidadePopulacional1);
+    printf("PIB per Capta: R$%.2f\n", pibPerCapta1);
+    
 
     // Exibindo os dados coletados da Carta 2
     printf("\nCarta 2\n");
     printf("Estado: %c\n", estado2);
     printf("Código da Carta: %s\n", codigo2);
     printf("Nome da cidade: %s\n", cidade2);
-    printf("População: %d\n", populacao2);
-    printf("Área: %f km²\n", area2);
-    printf("PIB: %f bilhões de reais\n", pib2);
+    printf("População: %d habitantes\n", populacao2);
+    printf("Área: %.2f km²\n", area2);
+    printf("PIB: %.2f bilhões de reais\n", pib2);
     printf("Número de Pontos Turísticos: %d\n", numeroPontosTuristicos2);
+    printf("Densidade populacional: %.2f hab/km²\n", densidadePopulacional2);
+    printf("PIB per Capta: R$%.2f\n", pibPerCapta2);
 
     return 0;
 }
